@@ -1,0 +1,32 @@
+.movieCard {
+    display: block;
+    width: 280px;
+    height: 360px;
+    border-radius: 10px;
+    align-content: flex-end;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+  
+  .overlay {
+    position: absolute;
+    width: 250px;
+    background-color: black;
+    opacity: 0.7;
+    height: 0px;
+    transition: all 0.3s ease-out;
+    visibility: hidden;
+    color: white;
+    bottom: 0;
+    top: auto;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 5px 15px;
+}
+  
+  .movieCard:hover .overlay {
+    visibility: visible;
+    height: 100px;
+  }
+  

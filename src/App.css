@@ -1,0 +1,26 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+.AppHeading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-right: 9%;
+}
+
+.App {
+    min-height: 100vh;
+    padding: 0% 3% 5%;
+    background-color: #C3CFD5;
+}
+
+.AppHeading > p {
+    margin: 40px 0;
+    font-size: 30px;
+    color:#FFFFFF;
+}
+
+.searchInput:focus::before {
+    background-color: rgba(0, 0, 0, 0.6); 
+}
