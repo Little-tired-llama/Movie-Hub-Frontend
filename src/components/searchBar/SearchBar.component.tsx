@@ -5,37 +5,34 @@ import Movie from '../../models/Movie';
 import './SearchBar.styles.css';
 
 interface Props {
-  movies: Movie[],
-  filteredItems: Movie[],
+  movies: Movie[];
+  filteredItems: Movie[];
   setFilteredItems: React.Dispatch<React.SetStateAction<Movie[]>>;
 }
 
-const SearchBar = ({ movies, filteredItems, setFilteredItems }: Props) => {
+const SearchBar = ({ movies, filteredItems, setFilteredItems } : Props) => {
   const [searchValue, setSearchValue] = useState('');
   const [sortParameter, setSortParameter] = useState('title');
 
   useEffect(() => {
-    const filtered = movies.filter(
+    const filteredAndSorted = movies.filter(
       (movie) =>
         movie.Title.toLowerCase().includes(searchValue.toLowerCase()) ||
         movie.Director.toLowerCase().includes(searchValue.toLowerCase())
     );
-    setFilteredItems(filtered);
-  }, [movies, searchValue]);
 
-  useEffect(() => {
-    const sorted = [...filteredItems];
     if (sortParameter === 'title') {
-      sorted.sort((a, b) => a.Title.localeCompare(b.Title));
+      filteredAndSorted.sort((a, b) => a.Title.localeCompare(b.Title));
     } else if (sortParameter === 'year') {
-      sorted.sort((a, b) => a.Year - b.Year);
+      filteredAndSorted.sort((a, b) => a.Year - b.Year);
     } else if (sortParameter === 'rate') {
-      sorted.sort((a, b) => a.Rate - b.Rate);
+      filteredAndSorted.sort((a, b) => a.Rate - b.Rate);
     } else {
-      console.log('i am stupid computer');
+      console.log('i am a stupid computer');
     }
-    setFilteredItems(sorted);
-  }, [sortParameter]);
+
+    setFilteredItems(filteredAndSorted);
+  }, [searchValue, sortParameter]);
 
   return (
     <div className="searchBar">
@@ -50,6 +47,7 @@ const SearchBar = ({ movies, filteredItems, setFilteredItems }: Props) => {
         className="searchInput"
         placeholder="Find the movie..."
         type="search"
+        value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
       />
     </div>
