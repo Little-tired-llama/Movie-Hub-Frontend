@@ -41,7 +41,7 @@ describe('SearchBar', () => {
       PosterUrl: 'posterUrl2',
     }];
 
-    render(<SearchBar movies={movies} filteredItems={filteredItems} setFilteredItems={()=>{}} />);
+    render(<SearchBar movies={movies} setFilteredItems={()=>{}} />);
     render(<MoviesBlock filteredMovies={filteredItems} />);
 
     const searchInput = screen.getByPlaceholderText('Find the movie...');

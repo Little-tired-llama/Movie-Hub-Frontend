@@ -30,7 +30,7 @@ const App = () => {
     <div className="App" data-testid="app">
       <div className='AppHeading'>
         <p>MOVIE HUB</p>
-        <SearchBar movies={movies} filteredItems={movies} setFilteredItems={setFilteredMovies}/>
+        <SearchBar movies={movies} setFilteredItems={setFilteredMovies}/>
       </div>
       <MoviesBlock filteredMovies={filteredMovies}/>
     </div>

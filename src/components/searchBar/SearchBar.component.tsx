@@ -6,11 +6,10 @@ import './SearchBar.styles.css';
 
 interface Props {
   movies: Movie[];
-  filteredItems: Movie[];
   setFilteredItems: React.Dispatch<React.SetStateAction<Movie[]>>;
 }
 
-const SearchBar = ({ movies, filteredItems, setFilteredItems } : Props) => {
+const SearchBar = ({ movies, setFilteredItems } : Props) => {
   const [searchValue, setSearchValue] = useState('');
   const [sortParameter, setSortParameter] = useState('title');
 
@@ -32,7 +31,7 @@ const SearchBar = ({ movies, filteredItems, setFilteredItems } : Props) => {
     }
 
     setFilteredItems(filteredAndSorted);
-  }, [searchValue, sortParameter]);
+  }, [movies, searchValue, sortParameter]);
 
   return (
     <div className="searchBar">
